@@ -1,0 +1,253 @@
+
+@import url('https://fonts.googleapis.com/css?family=Nova+Round&display=swap');
+
+*{
+    margin: 0;
+    padding: 1px;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(-45deg, #FA8BFF, #2BD2FF, #FFE53B,#FF2525, #FBDA61);
+	background-size: 800% 800%;
+	animation: gradient 40s ease infinite;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+
+
+#calculator{
+    min-width: 273px;
+    min-height: 48px;
+
+
+    background: #EBECF1;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.15);
+    border-radius: 24px;
+
+    font-family: Nova Round;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    transition: background-color .5s ease-in-out, box-shadow .5s ease-in-out;
+}
+
+#result{
+	width: 233px;
+	height: 91px;
+	
+    background-color: #EBECF1;
+    box-shadow: inset 1.5px 1.5px 3px #CBCBCB, inset -1.5px -1.5px 3px #FFFFFF;
+    border-radius: 24px 24px 10px 10px;
+    margin: 20px 20px 20px 20px;
+    transition: background-color .5s ease-in-out, box-shadow .5s ease-in-out;
+}
+
+
+
+#history{
+	font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 5px;
+    overflow: auto;
+    user-select: all;
+}
+
+#history-value{
+		transition: color .5s ease-in-out;
+}
+
+#output{
+	font-size: 22px;
+    line-height: 24px;
+    color: rgb(153, 153, 153);
+    overflow: auto;
+    transition: color .5s ease-in-out;
+}
+#output-text{
+	text-align: end;
+    padding: 17px;
+    font-size: 30px;
+}
+#microphone{
+	height: 30px;
+	width: 30px;
+	float: right;
+	background-image: url(mic.png);
+	background-size: 100% 100%;
+	border-radius: 50%;
+	margin: 20px;
+	
+	margin-top: 60px;
+}
+.record{	
+	animation: microphone-animation 1.5s infinite;
+}
+@Keyframes microphone-animation{
+	0%{
+		transform: scale(0.9);
+	}
+	70%{
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0,148,255,0.4);
+		
+	}
+	100%{
+		transform: scale(0.9);
+		box-shadow: 0 0 0 0 rgba(0,148,255,0);
+	}
+}
+.tooltip{
+	width: 200px;
+	font-size: 9px;
+	position: absolute;
+	background-color: #dddddd;
+	color: #636363;
+	padding: 10px;
+	top: 216px;
+	transform: translateX(255px);
+	border-radius: 5px;
+	visibility: hidden;
+}
+.tooltip::before{
+	content: '';
+	position: absolute;
+	border-width: 5px;
+	border-style: solid;
+	border-color:transparent #dddddd transparent transparent;
+	left: 0;
+	margin-left: -10px;
+}
+#output-microphone:hover .tooltip{
+	visibility: visible;
+}
+
+#keyboard{
+    width: 233px;
+    height: 296px;
+    margin: 20px 20px 20px 20px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 19px;
+    grid-row-gap: 19px;
+
+    
+}
+
+.style{
+    box-shadow: 4.5px 4.5px 9px #CBCBCB,
+                -4.5px -4.5px 9px #FFFFFF;
+    border-radius: 500px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color .5s ease-in-out, box-shadow .5s ease-in-out, color .5s ease-in-out;
+}
+
+.styleOnClick{
+    box-shadow: inset 2px 2px 4px #CBCBCB,
+                inset -2px -2px 4px #FFFFFF;
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.circle{
+    width: 44px;
+    height: 44px;            
+}
+
+
+
+.numColor{
+    color: #373737;
+}
+
+
+
+.trashCan{
+    width: 15px;
+    height: 15px;
+}
+
+
+.ariOpeColor{
+    color: rgb(1, 7, 12);
+}
+
+.zero{
+    width: 107px;
+    height: 44px;
+	color: #F7B731;
+	font-size: 20px;
+    grid-area: 5 / 1 / 6 / 3;
+}
+
+
+
+.operator, .number, .empty{
+
+	border-width: 0;
+	font-weight: bold;
+	
+}
+.number, .empty{
+	background-color: #eaedef;
+}
+.number, .operator{
+	cursor: pointer;
+}
+.operator:active, .number:active{
+	font-size: 13px;
+}
+.operator:focus, .number:focus, .empty:focus{
+	outline: 0;
+}
+button:nth-child(4){
+	font-size: 20px;
+	background-color: #20b2aa;
+}
+button:nth-child(8){
+	font-size: 20px;
+	background-color: #ffa500;
+}
+button:nth-child(12){
+	font-size: 20px;
+	background-color: #f08080;
+}
+button:nth-child(16){
+	font-size: 20px;
+	background-color: #7d93e0;
+}
+button:nth-child(20){
+	font-size: 20px;
+	background-color: #9477af;
+}
+
+.equal{
+    width: 44px;
+	height: 100px;
+	font-size: 200px;
+	color: rgb(1, 22, 11);
+	grid-area: 4 / 4 / span 2 / span 1;
+    
+}
