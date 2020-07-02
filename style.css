@@ -164,7 +164,7 @@ body{
     transition: background-color .5s ease-in-out, box-shadow .5s ease-in-out, color .5s ease-in-out;
 }
 
-.styleOnClick{
+.style:active{
     box-shadow: inset 2px 2px 4px #CBCBCB,
                 inset -2px -2px 4px #FFFFFF;
     font-size: 20px;
